@@ -1663,7 +1663,7 @@ static INT multi_profile_merge_5g_only(
 	return NDIS_STATUS_SUCCESS;
 }
 
-#ifdef DEFAULT_5G_PROFILE
+
 /*
 * merge 2G only related
 */
@@ -1824,7 +1824,7 @@ static INT multi_profile_merge_global_setting_only(CHAR *buf1, CHAR *buf2, CHAR 
 
 	return NDIS_STATUS_SUCCESS;
 }
-#endif
+
 
 #ifdef IGMP_SNOOP_SUPPORT
 /*
@@ -2112,7 +2112,7 @@ static INT multi_profile_merge(
 
 	if (multi_profile_merge_5g_only(data, buf1, buf2, final) != NDIS_STATUS_SUCCESS)
 		return retval;
-#ifdef DEFAULT_5G_PROFILE
+
 
 	if (multi_profile_merge_2g_only(buf1, buf2, final) != NDIS_STATUS_SUCCESS)
 		return retval;
@@ -2121,7 +2121,7 @@ static INT multi_profile_merge(
 	if (multi_profile_merge_global_setting_only(buf1, buf2, final) != NDIS_STATUS_SUCCESS)
 		return retval;
 
-#endif
+
 #ifdef IGMP_SNOOP_SUPPORT
 
 	if (multi_profile_merge_igmp(buf1, buf2, final) != NDIS_STATUS_SUCCESS)
